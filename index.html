@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Región de O'Higgins — Guía interactiva</title>
+<style>
+:root{--bg:#f5f7fb;--ink:#172033;--muted:#5b6578;--accent:#16a085;--card:#fff;--line:#dce3ed}
+*{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);transition:background .25s,color .25s}
+header{padding:38px 20px 30px;background:linear-gradient(120deg,#0e7490,#16a085,#84cc16);color:white}
+.wrap{max-width:1100px;margin:auto;padding:0 18px} h1{font-size:clamp(2rem,5vw,3.2rem);margin:0 0 8px} header p{max-width:720px;line-height:1.6;margin:0}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0}
+button,.chip{border:0;border-radius:999px;padding:10px 15px;font-weight:700;cursor:pointer;transition:transform .15s,filter .15s;background:#e2e8f0;color:#172033}
+button:hover{transform:translateY(-2px);filter:brightness(.97)} button:focus-visible{outline:3px solid #f59e0b;outline-offset:3px}
+button.active{background:var(--accent);color:white}.theme-btn{margin-left:auto}
+nav{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0}nav button{background:var(--card);border:1px solid var(--line)}
+main{padding:20px 0 50px}.section{display:none}.section.active{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:.25;transform:translateY(5px)}to{opacity:1;transform:none}}
+h2{margin:8px 0 14px;font-size:1.7rem}.intro{color:var(--muted);line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--cardcolor,var(--accent));border-radius:16px;padding:19px;box-shadow:0 8px 24px #14213d0b}
+.card h3{margin:0 0 10px}.card p,.card li{line-height:1.55;color:var(--muted)}.card ul{padding-left:20px}
+.tag{display:inline-block;background:color-mix(in srgb,var(--cardcolor,var(--accent)) 15%,white);color:var(--cardcolor,var(--accent));font-size:.78rem;font-weight:800;border-radius:7px;padding:5px 8px;margin-bottom:10px}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px 16px;margin:10px 0}summary{cursor:pointer;font-weight:750}
+.note{border-left:4px solid #f59e0b;background:var(--card);padding:14px 17px;border-radius:8px;line-height:1.6;margin-top:18px}
+footer{text-align:center;color:var(--muted);padding:25px;border-top:1px solid var(--line);font-size:.9rem}
+body.dark{--bg:#111827;--ink:#f3f4f6;--muted:#c0cad8;--card:#1f2937;--line:#374151}
+body.dark button{background:#374151;color:#f3f4f6}body.dark button.active{background:var(--accent);color:white}body.dark .tag{background:#263f42}
+.palette{display:flex;gap:8px;flex-wrap:wrap}.swatch{width:32px;height:32px;border-radius:50%;border:3px solid white;box-shadow:0 0 0 1px #aab2c0;cursor:pointer}.swatch[aria-pressed="true"]{outline:3px solid var(--ink);outline-offset:3px}
+.search{width:100%;max-width:420px;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:inherit;background:var(--card);color:var(--ink);margin:0 0 16px}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <span class="chip">GUÍA INTERACTIVA · VI REGIÓN</span>
+    <h1>Región de O’Higgins</h1>
+    <p>Explora características de los suelos, especies frutícolas y climatología de Cachapoal, Colchagua y Cardenal Caro. Usa las pestañas y cambia los colores para personalizar la guía.</p>
+  </div>
+</header>
+<main class="wrap">
+  <div class="toolbar" aria-label="Personalización">
+    <strong style="align-self:center">Color principal:</strong>
+    <div class="palette">
+      <button class="swatch" style="background:#16a085" data-color="#16a085" aria-label="Verde" aria-pressed="true"></button>
+      <button class="swatch" style="background:#2563eb" data-color="#2563eb" aria-label="Azul" aria-pressed="false"></button>
+      <button class="swatch" style="background:#9333ea" data-color="#9333ea" aria-label="Violeta" aria-pressed="false"></button>
+      <button class="swatch" style="background:#e11d48" data-color="#e11d48" aria-label="Rosa" aria-pressed="false"></button>
+      <button class="swatch" style="background:#ea580c" data-color="#ea580c" aria-label="Naranjo" aria-pressed="false"></button>
+    </div>
+    <button class="theme-btn" id="themeToggle">🌙 Modo oscuro</button>
+  </div>
+  <nav aria-label="Secciones">
+    <button class="active" data-section="suelos">🌱 Suelos</button>
+    <button data-section="frutales">🍒 Fruticultura</button>
+    <button data-section="clima">🌦️ Climatología</button>
+    <button data-section="manejo">🧑‍🌾 Manejo recomendado</button>
+  </nav>
+
+  <section id="suelos" class="section active">
+    <h2>Características de los suelos por provincia</h2>
+    <p class="intro">Selecciona cada provincia para revisar sus características principales, limitaciones y recomendaciones de manejo descritas en el documento de referencia.</p>
+    <div class="grid">
+      <article class="card" style="--cardcolor:#16a085">
+        <span class="tag">Valle agrícola</span><h3>Cachapoal</h3>
+        <ul><li>Suelos de valles y terrazas, asociados a depósitos aluviales y sedimentarios.</li><li>Texturas principalmente francas y franco-arcillosas.</li><li>En sectores de valle hay suelos profundos, planos y productivos.</li><li>Limitaciones: compactación, erosión localizada, drenaje y pérdida de materia orgánica.</li></ul>
+        <details><summary>Ver resumen</summary><p>Concentra una importante superficie de suelos de alta productividad agrícola, favorables para una agricultura intensiva y tecnificada.</p></details>
+      </article>
+      <article class="card" style="--cardcolor:#d97706">
+        <span class="tag">Valle y piedemonte</span><h3>Colchagua</h3>
+        <ul><li>Suelos de valle, terrazas y piedemonte.</li><li>Texturas francas, franco-arcillosas y arcillosas.</li><li>En los valles predominan pendientes bajas; hacia el piedemonte aumentan.</li><li>Limitaciones: erosión, déficit de humedad, compactación y profundidad variable.</li></ul>
+        <details><summary>Ver resumen</summary><p>Presenta buena aptitud agrícola y frutícola, especialmente en sectores planos y aluviales del valle.</p></details>
+      </article>
+      <article class="card" style="--cardcolor:#7c3aed">
+        <span class="tag">Secano y costa</span><h3>Cardenal Caro</h3>
+        <ul><li>Suelos diversos por la influencia de la Cordillera de la Costa, valles interiores y sectores costeros.</li><li>Profundidad y fertilidad variables.</li><li>Existen pendientes moderadas y fuertes.</li><li>Limitaciones importantes: erosión y disponibilidad de agua.</li></ul>
+        <details><summary>Ver resumen</summary><p>La conservación del suelo y la humedad es clave para mantener la productividad en sectores de secano.</p></details>
+      </article>
+    </div>
+  </section>
+
+  <section id="frutales" class="section">
+    <h2>Fruticultura por provincia</h2>
+    <p class="intro">Especies mencionadas en el documento para cada provincia. Pulsa una tarjeta para desplegar ejemplos comunales.</p>
+    <input class="search" id="fruitSearch" type="search" placeholder="Buscar especie o comuna… (ej. cerezo, olivo)" aria-label="Buscar especie o comuna">
+    <div class="grid" id="fruitGrid">
+      <article class="card" data-search="cachapoal cerezo nogal nectarino almendro duraznero ciruelo vid palto kiwi cítricos">
+        <span class="tag">Provincia</span><h3>Cachapoal</h3>
+        <p><strong>Especies destacadas:</strong> cerezo, nogal, nectarino, almendro, duraznero, ciruelo y vid. También aparecen palto, cítricos y kiwi en algunas comunas.</p>
+        <details><summary>Ejemplos comunales</summary><p>Codegua: cerezo y nogal. Graneros: cerezo, vid de mesa, peral, ciruelo europeo, nogal y manzano. Peumo: palto y cítricos. Rengo: cerezo, nectarino, almendro, vid y otros frutales.</p></details>
+      </article>
+      <article class="card" data-search="colchagua cerezo ciruelo vid duraznero nogal manzano kiwi peral olivo palto">
+        <span class="tag">Provincia</span><h3>Colchagua</h3>
+        <p><strong>Especies destacadas:</strong> cerezo, ciruelo europeo, vid de mesa, duraznero conservero y nogal. También se registran manzano, kiwi, peral, olivo y palto.</p>
+        <details><summary>Ejemplos comunales</summary><p>Chépica: cerezo, ciruelo europeo, vid de mesa, duraznero conservero y nogal. Ch imbarongo: cerezo, manzano, kiwi, nogal y peral. Santa Cruz: ciruelo europeo, cerezo, palto, vid, nogal y peral.</p></details>
+      </article>
+      <article class="card" data-search="cardenal caro olivo palto ciruelo europeo mandarino nogal almendro limón limonero arándano frambuesa">
+        <span class="tag">Provincia</span><h3>Cardenal Caro</h3>
+        <p><strong>Especies destacadas:</strong> olivo, palto, ciruelo europeo, mandarino, nogal, almendro y cítricos. En algunas comunas también se mencionan arándano y frambuesa.</p>
+        <details><summary>Ejemplos comunales</summary><p>La Estrella: olivo y palto. Litueche: palto y cítricos. Marchigüe: olivo, ciruelo, nogal y almendro. Pichilemu: limonero y frambuesa.</p></details>
+      </article>
+    </div>
+    <div class="note">Nota: la presencia de una especie puede variar entre comunas y sectores productivos; esta sección resume la información del documento entregado.</div>
+  </section>
+
+  <section id="clima" class="section">
+    <h2>Climatología de la VI Región</h2>
+    <p class="intro">La región presenta un clima templado mediterráneo, con veranos cálidos y secos e inviernos fríos y lluviosos.</p>
+    <div class="grid">
+      <article class="card" style="--cardcolor:#f59e0b"><span class="tag">Verano</span><h3>☀️ Cálido y seco</h3><p>Altas temperaturas y escasas precipitaciones.</p></article>
+      <article class="card" style="--cardcolor:#3b82f6"><span class="tag">Invierno</span><h3>🌧️ Frío y húmedo</h3><p>Gran parte de las lluvias se concentra entre mayo y agosto.</p></article>
+      <article class="card" style="--cardcolor:#0d9488"><span class="tag">Precipitaciones</span><h3>🌦️ Costa a cordillera</h3><p>Las precipitaciones aumentan hacia la precordillera y cordillera, según el documento.</p></article>
+    </div>
+    <h3 style="margin-top:24px">Diferencias según zona</h3>
+    <div class="grid">
+      <article class="card" style="--cardcolor:#0ea5e9"><h3>🌊 Costa</h3><p>Temperaturas más moderadas, influencia del océano y menor amplitud térmica.</p></article>
+      <article class="card" style="--cardcolor:#eab308"><h3>🌾 Valle</h3><p>Veranos cálidos y secos e inviernos fríos y lluviosos; condiciones favorables para la fruticultura.</p></article>
+      <article class="card" style="--cardcolor:#8b5cf6"><h3>⛰️ Precordillera</h3><p>Temperaturas más bajas, mayor acumulación de frío y mayores precipitaciones.</p></article>
+      <article class="card" style="--cardcolor:#64748b"><h3>❄️ Cordillera</h3><p>Temperaturas bajas, precipitaciones abundantes y presencia de nieve durante el invierno.</p></article>
+    </div>
+    <div class="note">Las heladas pueden presentarse en invierno y afectar especialmente a sectores interiores y precordilleranos. El frío invernal y el verano cálido favorecen el desarrollo de frutales de hoja caduca como cerezo, nogal, duraznero, nectarino y ciruelo.</div>
+  </section>
+
+  <section id="manejo" class="section">
+    <h2>Recomendaciones de manejo del suelo</h2>
+    <p class="intro">Buenas prácticas señaladas en el documento para conservar la estructura, humedad y productividad del suelo.</p>
+    <div class="grid">
+      <article class="card" style="--cardcolor:#16a085"><h3>💧 Manejo del agua</h3><p>Aplicar riego tecnificado donde corresponda y manejar eficientemente el agua, especialmente en zonas de secano.</p></article>
+      <article class="card" style="--cardcolor:#65a30d"><h3>🌿 Materia orgánica</h3><p>Incorporar materia orgánica y mantener cobertura vegetal para favorecer la conservación del suelo.</p></article>
+      <article class="card" style="--cardcolor:#ea580c"><h3>⛰️ Control de erosión</h3><p>Reducir la erosión en terrenos con pendiente y evitar dejar el suelo descubierto.</p></article>
+      <article class="card" style="--cardcolor:#2563eb"><h3>🧪 Análisis y labores</h3><p>Realizar análisis de suelo para orientar la fertilización y evitar trabajar el suelo cuando esté excesivamente húmedo.</p></article>
+    </div>
+  </section>
+</main>
+<footer>Guía interactiva elaborada a partir del documento “Región de O’Higgins”.</footer>
+<script>
+const root=document.documentElement;
+document.querySelectorAll('.swatch').forEach(btn=>btn.addEventListener('click',()=>{
+  root.style.setProperty('--accent',btn.dataset.color);
+  document.querySelectorAll('.swatch').forEach(b=>b.setAttribute('aria-pressed',String(b===btn)));
+  document.querySelectorAll('nav button').forEach(b=>{if(b.classList.contains('active'))b.style.background=btn.dataset.color});
+}));
+document.querySelectorAll('nav button').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b===btn));
+  document.querySelectorAll('.section').forEach(s=>s.classList.toggle('active',s.id===btn.dataset.section));
+  document.querySelectorAll('nav button').forEach(b=>b.style.background=b===btn?'var(--accent)':'var(--card)');
+  document.querySelectorAll('nav button').forEach(b=>b.style.color=b===btn?'white':'var(--ink)');
+}));
+document.getElementById('themeToggle').addEventListener('click',e=>{
+  document.body.classList.toggle('dark');
+  e.currentTarget.textContent=document.body.classList.contains('dark')?'☀️ Modo claro':'🌙 Modo oscuro';
+});
+document.getElementById('fruitSearch').addEventListener('input',e=>{
+  const q=e.target.value.toLocaleLowerCase('es');
+  document.querySelectorAll('#fruitGrid .card').forEach(card=>{
+    card.style.display=card.dataset.search.toLocaleLowerCase('es').includes(q)?'block':'none';
+  });
+});
+</script>
+</body>
+</html>
